@@ -1,0 +1,93 @@
+{
+    "_comment": " model parameters",
+    "model": {
+	"type_map":	["Ti","O","H"],
+	"descriptor" :{
+	    "type":		"se_e2_a",
+            "sel":		[48,96,120],
+            "rcut_smth":	3.00,
+            "rcut":		6.00,
+            "neuron":	       [25, 50, 100],
+	    "resnet_dt":	false,
+	    "axis_neuron":	12,
+	    "seed":             22769,
+	    "_comment":		" that's all"
+	},
+	"fitting_net" : {
+	    "neuron":		[60, 60, 60],
+	    "resnet_dt":	true,
+	    "seed":             22769,
+	    "_comment":		" that's all"
+	},
+	"_comment":	" that's all"
+    },
+
+    "learning_rate" :{
+	"type":		"exp",
+	"start_lr":	1e-3,
+        "stop_lr":      1e-8,
+	"decay_steps":	5000,
+	"_comment":	"that's all"
+    },
+
+    "loss" :{
+	"start_pref_e":	0.02,
+	"limit_pref_e":	1,
+	"start_pref_f":	1000,
+	"limit_pref_f":	1,
+	"start_pref_v":	0,
+	"limit_pref_v":	0,
+	"_comment":	" that's all"
+    },
+
+    "_comment": " traing controls",    
+    "training" : {
+        "training_data": {
+            "systems": [
+                "/home/zhutiand/scr/dp/01_train/raw_files/water_cp2k_train",
+                "/home/zhutiand/scr/dp/01_train/raw_files/amor5_bulk_train",
+                "/home/zhutiand/scr/dp/01_train/raw_files/amor5_surf_train",
+                "/home/zhutiand/scr/dp/01_train/raw_files/amor5_123water_train",
+                "/home/zhutiand/scr/dp/01_train/raw_files/amor5_1water_train"],
+	    "set_prefix":	"set",
+            "auto_prob":        "prob_uniform",    
+            "batch_size": [
+            1,
+            1,
+	    1,
+            1,
+            1],
+            "_comment":         "that's all"
+        },
+        "validation_data": {
+            "systems": [
+                "/home/zhutiand/scr/dp/01_train/raw_files/water_cp2k_test",
+                "/home/zhutiand/scr/dp/01_train/raw_files/amor5_bulk_test",
+                "/home/zhutiand/scr/dp/01_train/raw_files/amor5_surf_test",
+                "/home/zhutiand/scr/dp/01_train/raw_files/amor5_123water_test",
+                "/home/zhutiand/scr/dp/01_train/raw_files/amor5_1water_test"],
+            "set_prefix":   "set",
+            "auto_prob":        "prob_uniform",
+            "batch_size":       1,
+            "numb_btch":        2,
+            "_comment":         "that's all"
+        },
+        "numb_steps":   2000000,
+	"seed":         22769,
+	"_comment": " display and restart",
+	"_comment": " frequencies counted in batch",
+	"disp_file":	"lcurve.out",
+	"disp_freq":	100,
+	"numb_test":	10,
+	"save_freq":	1000,
+	"save_ckpt":	"model.ckpt",
+	"disp_training":true,
+	"time_training":true,
+	"profiling":	false,
+	"profiling_file":"timeline.json",
+	"_comment":	"that's all"
+    },
+
+    "_comment":		"that's all"
+}
+
