@@ -5,9 +5,9 @@ This repository contains the training data and input files needed to train a DNN
 
 Within this repository you will find:
 
-raw: The raw data used to train the DP model;
-train: The DeepMD-kit input files;
-DP_models: The frozen DNN graphs that can be used to run DP molecular dynamics.
+raw: The raw data used to train the DP model; \\
+train: The DeepMD-kit input files; \\
+DP_models: The frozen DNN graphs that can be used to run DP molecular dynamics. \\
 
 If you use this training data, please read and cite:
 Zhutian Ding and Annabella Selloni (2023) To be submitted.
